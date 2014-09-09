@@ -1,0 +1,12 @@
+{
+  "catalog" :
+    { "host"       : "cmcatalog-stage.ldschurch.org"
+    , "port"       : 443
+    , "creditials" : "_app_cmc_dasi:3300093798555310640"
+    , "searchUrl"  : "/entry/search"
+    , "entryUrl"   : "/entry"
+    },
+  "accessLogPath": "/opt/node-deploy/logs/dasi-access.log",
+  "smtpServer": "smtp-relay-trap.ldschurch.org",
+  "env": "-uat"
+}

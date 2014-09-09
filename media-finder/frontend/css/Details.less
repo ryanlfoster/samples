@@ -1,0 +1,234 @@
+@import "icons.less";
+
+#details {
+  display: none;
+}
+
+body.route-is-search #details {
+  display: block;
+}
+
+#details {
+  @width: 960px;
+  @height: 595px;
+  @imageBox: 512px;
+  @imageBoxMargin: 35px;
+
+  background-color: black;
+  .rounded-corners(2px);
+
+  color: @medium-creme;
+
+  font-size: 14px;
+  width: @width;
+  height: @height;
+
+
+  .imageBox {
+    float: left;
+    margin: @imageBoxMargin;
+    margin-bottom: 0;
+    width:  @imageBox;
+
+    .previewImage {
+      display: none;
+      outline: 1px solid @light-creme;
+      max-width:  @imageBox;
+      max-height: @imageBox;
+    }
+  }
+
+  .data {
+    @padding-right: 20px;
+    margin-right: 12px;
+    max-width: @width - @imageBox - (@imageBoxMargin * 2) - @padding-right;
+    margin-top: 31px;
+    clear: right;
+    height: @height - 70px;
+    padding-right: @padding-right + @imageBoxMargin;
+    overflow-y: scroll;
+
+    .accordion-arrow {
+      cursor: pointer;
+      margin-top: 3px;
+      margin-left: 7px;
+      @arrow-size: 5px;
+      @arrow-color: @page-background;
+      width:0px;
+      height:0px;
+      float: left;
+      border-top: @arrow-size solid transparent;
+      border-left:  (@arrow-size * 2) solid @arrow-color;
+      border-right: (@arrow-size * 2) solid transparent;
+      border-bottom: @arrow-size solid transparent;
+      font-size:0px;
+      line-height:0px;
+    }
+
+    .section.open .accordion-arrow {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      margin-top: 10px;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-right: 3px;
+    }
+
+    .sectionHeading {
+      cursor: pointer;
+      font-size: 14px;
+      font-wieght: bold;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid @grey4;
+      padding-left: 20px;
+      color: @blue5;
+    }
+
+    .field {
+      margin-bottom: 5px;
+    }
+
+    .fields {
+      margin-left: 7px;
+      -webkit-transition: all 0.15s linear;
+      -moz-transition: all 0.15s linear;
+    }
+
+    table.fields {
+      width: 100%;
+
+      td.deeplink{
+        word-break: break-all;
+      }
+
+      td {
+        vertical-align: top;
+        margin: 5px;
+        padding-bottom: 10px;
+      }
+
+      td.capitalize{
+        text-transform: capitalize;
+      }
+
+      td + td {
+        padding-left: 15px;
+      }
+    }
+
+    .section.closed .fields {
+      display: block;
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+    }
+
+    .section.open .fields {
+      display: block;
+      margin-bottom: 10px;
+      height: auto;
+      opacity: 1;
+    }
+
+    .label {
+      font-weight: bold;
+      &:after{ content: ":" }
+    }
+
+    .keyword.value {
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 5px;
+      margin: 3px 8px;
+      display: inline-block;
+      background-color: @blue-grey5;
+      color: @blue1;
+      border: 1px solid @blue4;
+      .rounded-corners(2px);
+      margin: 2px;
+      overflow: hidden;
+
+      .text {
+        float:left;
+        padding: 1px 9px 0 4px;
+        max-width: 220px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+      .icon {
+        float: right;
+        .sprite.magnifying();
+      }
+    }
+
+    a.deeplink {
+      color: @blue5;
+      &:hover {
+        color: @blue1;
+      }
+    }
+  }
+
+  .close {
+    .sprite.close();
+    cursor: pointer;
+    float: right;
+    margin: 10px;
+  }
+
+  .actions {
+    float: left;
+    width: @imageBox;
+    padding-left: @imageBoxMargin;
+    height: 20px;
+
+    .action {
+      margin: 10px auto;
+      width: 100px;
+      height: 20px;
+      background-color: @blue-grey5;
+      color: @blue1;
+      .rounded-corners(2px);
+      border: 1px solid @blue4;
+      cursor: pointer;
+    }
+
+    p.text {
+      padding-left: 25px;
+      margin: 1px 5px;
+    }
+
+    .icon {
+      margin: 2px 5px;
+      .sprite.download();
+      float: left;
+    }
+
+  }
+
+  ::-webkit-scrollbar{
+    background-color: @grey1;
+    width: 14px;
+    outline: 1px solid @blue-grey2;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    width: 12px;
+    background-color: @grey2;
+  }
+
+  /*
+  scrollbar
+  scrollbar-button
+  scrollbar-track
+  scrollbar-track-piece
+  scrollbar-thumb
+  scrollbar-corner
+  resizer
+*/
+}
+

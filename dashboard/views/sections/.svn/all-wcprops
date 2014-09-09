@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/CMDashboard/!svn/ver/53/Trunk/web/src/main/webapp/WEB-INF/views/sections
+END
+team.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CMDashboard/!svn/ver/51/Trunk/web/src/main/webapp/WEB-INF/views/sections/team.jsp
+END
+spend.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/CMDashboard/!svn/ver/53/Trunk/web/src/main/webapp/WEB-INF/views/sections/spend.jsp
+END
+screenshots.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/CMDashboard/!svn/ver/32/Trunk/web/src/main/webapp/WEB-INF/views/sections/screenshots.jsp
+END
+teamsize.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/CMDashboard/!svn/ver/51/Trunk/web/src/main/webapp/WEB-INF/views/sections/teamsize.jsp
+END
+description.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/CMDashboard/!svn/ver/27/Trunk/web/src/main/webapp/WEB-INF/views/sections/description.jsp
+END
+roadmap.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/CMDashboard/!svn/ver/27/Trunk/web/src/main/webapp/WEB-INF/views/sections/roadmap.jsp
+END

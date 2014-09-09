@@ -1,0 +1,17 @@
+SLATE.directive 'comment', ['$http', ($http) ->
+  {
+    restrict: 'AE'
+    templateUrl: "<%= asset_path('templates/directives/comment.html') %>"
+    replace: true
+    link: (scope, element, attrs)->
+      thank = scope.$parent.thank
+      commentId = scope.comment.id
+      scope.deleteComment = ->
+         $http['delete']("/thanks/#{thank.id}/comments/#{commentId}")
+          .success (data) ->
+            thank.comments = _.reject thank.comments, (comm) ->
+              comm.id is commentId
+          .error (data) ->
+            scope.error = true
+  }
+]

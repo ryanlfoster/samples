@@ -1,0 +1,10 @@
+--add the following lines to /etc/hosts (c:\Windows\system32\drivers\etc\hosts) file:
+  127.0.0.1 mediafinder-local.ldschurch.org
+
+--run wam with the following command:
+  java -server -Xmx128m -jar SSOSim-5.47.jar wamconfig.xml
+  (or run the script runWam.sh)
+
+--hit MediaFinder through the wamulater:
+  mediafinder-local.ldschurch.org:3001
+

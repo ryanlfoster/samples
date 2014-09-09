@@ -1,0 +1,32 @@
+.rounded-corners (@radius: 5px){
+   border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.drop-shadows (@r: 10px, @color: #333) {
+  @x: 0px;
+  @y: 1px;
+  -moz-box-shadow: @x @y @r @color;
+  -webkit-box-shadow: @x @y @r @color;
+  box-shadow: @x @y @r @color;
+}
+
+.vertically-center-text() {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.noSelect() {
+  -moz-user-select: none;   /* mozilla browsers */
+  -khtml-user-select: none; /* webkit browsers */
+}
+
+.linear-gradient (@top, @bottom){
+   background-color: @bottom;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@top), to(@bottom));
+    background-image: -webkit-linear-gradient(top, @top, @bottom); 
+    background-image:    -moz-linear-gradient(top, @top, @bottom);
+    background-image:     -ms-linear-gradient(top, @top, @bottom);
+    background-image:      -o-linear-gradient(top, @top, @bottom);
+}

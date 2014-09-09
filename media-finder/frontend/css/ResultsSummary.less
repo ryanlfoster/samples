@@ -1,0 +1,150 @@
+#resultsHeader {
+  position: fixed;
+  top: @HeaderHeight + 4px;
+  @height: 50px;
+  background: @page-background;
+  height: 38px;
+  display: block;
+  padding-left: 20px;
+  color: @grey1;
+  width: 100%;
+
+  &.disabled {
+    color:#cccccc;
+      #pagination .back {
+        border-right-color: #cccccc !important;
+      }
+      #pagination .forward {
+        border-left-color: #cccccc !important;
+      }
+      input {
+        color: #cccccc;
+        // border: 2px solid #ffffff;
+      }
+  }
+
+  span.error {
+    color: @red;
+    a {
+      text-decoration: underline !important;
+    }
+  }
+
+  .nResults {
+    @font-size: 16px;
+    @vert-margin: (@height - @font-size) / 2;
+    font-size: @font-size;
+    margin-top: 10px;
+    float: left;
+  }
+
+  span.term {
+    font-style:italic;
+  }
+
+  span.keyword {
+    display: inline-block;
+    height: 17px;
+    position: relative;
+    top: -1px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: @blue5;
+    .rounded-corners(2px);
+    margin: 2px;
+    padding: 2px;
+    padding-right: 5px;
+  }
+
+  span.name {
+    margin: 0 2px;
+    padding-right: 5px;
+    margin-left: 5px;
+  }
+
+  span.close {
+    text-align: center;
+    right: 3px;
+    color: @light-creme;
+    .rounded-corners(2px);
+    width: 10px;
+    height: 10px;
+    margin: 2px 0 1px 0;
+  }
+
+  div.loading {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    padding-right: 10px;
+    float: left;
+  }
+  #pagination{
+    margin-top: 10px;
+    float: right;
+
+    .currentPage{
+      width: 25px;
+      text-align: center;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    .totalPages{
+      vertical-align: middle;
+      padding: 0;
+      margin: 0 0 0 3px; 
+    }
+
+    .buttony{
+      display: inline-block;
+      border: 1px solid #8A95B9;
+      padding: 3px 0px;
+      background-image: linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -o-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -moz-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -webkit-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -ms-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.5, rgb(229,234,248)),
+        color-stop(0.85, rgb(255,255,255))
+      );
+      cursor: pointer;
+      &.disabled{
+          cursor: default;
+          .back{
+            border-right-color: #cccccc !important;
+            cursor: default;}
+          .forward{
+            border-left-color: #cccccc !important;
+            cursor: default;}
+      }
+    }
+
+    span{
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 10px;
+
+      &.back{
+        border-right: 10px solid black;
+        border-top: 9px solid transparent;
+        border-left: none;
+        border-bottom: 9px solid transparent;
+      }
+      &.forward{
+        border-left: 10px solid black;
+        border-top: 9px solid transparent;
+        border-right: none;
+        border-bottom: 9px solid transparent;
+      }
+    }
+  } 
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/CMDashboard/!svn/ver/54/Trunk/web/src/main/webapp/WEB-INF/views/includes
+END
+header.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CMDashboard/!svn/ver/54/Trunk/web/src/main/webapp/WEB-INF/views/includes/header.jsp
+END
+brains.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/CMDashboard/!svn/ver/44/Trunk/web/src/main/webapp/WEB-INF/views/includes/brains.jsp
+END
+init.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/includes/init.jsp
+END

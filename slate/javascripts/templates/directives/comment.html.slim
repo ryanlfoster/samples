@@ -1,0 +1,10 @@
+div
+  .close ng-show="comment.commented_by_current_account" ng-click="deleteComment()" &times;
+  a.comment-avatar href="/accounts/{{comment.commenter.id}}"
+    img ng-src="{{comment.commenter.avatar_url_thumb}}" title="{{comment.commenter.display_name}}"
+  .comment-body
+    p.comment-message
+      a href="/accounts/{{comment.commenter.id}}" {{comment.commenter.first_name}}
+      |  - {{comment.comment}}
+    time.timestamp datetime="{{comment.created_at}}"
+      | {{comment.created_at|humanizeTimeFromNow}} ago

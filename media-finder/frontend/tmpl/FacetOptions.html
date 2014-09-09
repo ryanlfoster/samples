@@ -1,0 +1,27 @@
+<div id="facetOptions">
+  {{#if .}}
+    <h3 class="clickable">
+      <div class="arrow down"></div>
+      Keywords
+    </h3>
+    <div class="collapsable">
+      <div class="keywordsList">
+        <div class="noneLeftMessage">No Keyword Matches</div>
+        {{#keywords}}
+          <div class="keyword" data-name="{{name}}" title="{{name}}">
+            <span class="name">
+              {{name}}
+            </span>
+            <span class="count">
+              {{count}}
+            </span>
+          </div>
+        {{/keywords}}
+      </div>
+      <div class="filter" title="Filter Keywords">
+        <input class="filterInput" type="text" />
+        <div class="icon"></div>
+      </div>
+    </div> 
+  {{/if}}
+</div>

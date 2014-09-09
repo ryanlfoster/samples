@@ -1,0 +1,14 @@
+<div id="imageType">
+  <h3 class="clickable">
+    <div class="arrow"></div>
+    Image Type
+  </h3>
+  <div class="collapsable hidden">
+      {{#each .}}
+        <div class="type">
+          <input type="checkbox" name="{{name}}" id="imageType-{{name}}"/>
+          <label for="imageType-{{name}}">{{name}} (<span data-count="{{name}}">{{count}}</span>)</label>
+        </div>
+      {{/each}}
+  </div>
+</div>

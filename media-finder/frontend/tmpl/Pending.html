@@ -1,0 +1,42 @@
+<div id="pendingRequests">
+	<div class="icon">
+		<img src="img/envelope.png" alt="notifications"/>
+		{{#.}}
+			{{#if downloadRequest}}
+				<span>{{downloadRequest.length}}</span>
+			{{/if}}
+		{{/.}}
+	</div>
+	<div class="requestPanel">
+		<table>
+			<thead>
+				<tr>
+					<th data-sort="status"><span>Status</span></th>
+					<th data-sort="title"><span>Asset Title</span></th>
+					<th data-sort="id"><span>Asset Id</span></th>
+					<th data-sort="date"><span>Date</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#.}}
+					{{#if downloadRequest}}
+						{{#each downloadRequest}}
+						<tr>
+							<td  data-sort="status" class="center">{{noEmpty status}}</td>
+							<td  data-sort="title">
+								<a {{requestIsApproved status entryId}}>{{fixupTitle assetName}}</a>
+							</td>
+							<td data-sort="id" class="center">{{externalId}}</td>
+							<td data-sort="date" class="center">{{dateFormat lastUpdated "dd MMM yyyy"}}</td>
+						</tr>
+						{{/each}}
+					{{else}}
+						<tr>
+							<td colspan="4">You have no download requests at the moment</td>
+						</tr>
+					{{/if}}
+				{{/.}}
+			</tbody>
+		</table>
+	</div>
+</div>

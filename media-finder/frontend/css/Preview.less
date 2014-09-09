@@ -1,0 +1,53 @@
+@import "icons.less";
+
+#preview {
+  display: none;
+  min-width: 250px;
+  min-height: 150px;
+}
+
+body.route-is-search #preview {
+  display: block;
+}
+
+#preview {
+  padding: 20px;
+  visibility: hidden;
+
+  //override the modal styles
+  background-color: black;
+  border: 0 hidden transparent !important;
+  box-shadow: none !important;
+
+  color: @medium-creme;
+
+  .previewImage {
+    margin-bottom: 10px;
+    outline: 1px solid @medium-creme;
+  }
+
+  span.label {
+    font-weight: bold;
+    &:after {
+      content: ": ";
+    }
+  }
+
+  p.field {
+    margin-bottom: 7px;
+    .one-line();
+  }
+
+  div.data {
+    font-size: 15px;
+    line-height: 20px;
+    height: 45px;
+  }
+}
+
+//todo: put somewhere reusible
+.one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,38 @@
+<div id="shareCollections" class="search">
+	<div class="loading"></div>
+	<h2 class="title">Share Collection <span class="close"></span></h2>
+	<div>
+		<p class="error">
+			{{#each errorMsgs}}
+			<span>{{.}}</span><br/>
+			{{/each}}
+		</p>
+		<p><b>"{{collectionName}}" Shared With...</b></p>
+		<ul class="sharedWith">
+			{{#each user}}
+				<li data-username="{{username}}">
+					{{fullName}}
+					{{#ifCond roles/role/roleType "_app_cmc_COLLECTION_OWNER"}}
+						<span class="owner">Owner</span>
+					{{else}}
+						<span class="action delete" title="stop sharing with {{username}}"></span>
+					{{/ifCond}}
+                    <span class="subuser">{{username}}</span>
+				</li>
+			{{/each}}
+		</ul>
+		<div class="search">
+			<p><b>Share "{{collectionName}}" With...</b></p>
+			<input placeholder="Search by user's name" type="text" class="shareWith" /><span class="add"></span>
+			<ul class="searchResults hidden"></ul>
+		</div>
+		<div class="bulk">
+			<textarea placeholder="Enter a LDS Account username or a comma separated list of LDS Account usernames into the box to bulk add users to a collection"></textarea>
+			<div class="addBulk">Add</div>
+		</div>
+		<div class="options">
+			<span class="search">Add by LDS Account</span>
+			<span class="bulk">Cancel</span>
+		</div>
+	</div>
+</div>

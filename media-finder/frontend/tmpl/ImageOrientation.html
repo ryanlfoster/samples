@@ -1,0 +1,14 @@
+<div id="imageOrientation">
+  <h3 class="clickable">
+    <div class="arrow"></div>
+    Image Orientation
+  </h3>
+  <div class="collapsable hidden">
+      {{#each .}}
+      <div class="orientation">
+        <input type="checkbox" name="{{name}}" id="imageOrientation-{{name}}"/>
+        <label for="imageOrientation-{{name}}">{{name}} (<span data-count="{{name}}">{{count}}</span>)</label>
+      </div>
+      {{/each}}
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div id="preview">
+  {{#metadata}}
+    <img class="previewImage" title="Click to enlarge" src="{{ifFirst previewUrl thumbnailUrl}}" alt="" />
+    <div class="data">
+      <p class="field" data-qa-field="name">
+        <span class="label">Name</span>{{fixupTitle name}}
+      </p>
+      <p class="field" data-qa-field="description">
+        <span class="label">Description</span>
+        {{noEmpty description}}
+      </p>
+    </div>
+  {{/metadata}}
+</div>

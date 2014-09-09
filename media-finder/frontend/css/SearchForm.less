@@ -1,0 +1,193 @@
+@search-button-width: 36px;
+@search-box-height: 21px;
+#searchForm {
+  @search-form-width: @ControlsWidth - @ControlsPadding;
+
+  width: @search-form-width;
+  height: @SearchFormHeight;
+
+  a.advancedSearch {
+    float: right;
+    clear: right;
+    font-size: 10px;
+    line-height: 24px;
+    margin-right: 1px;
+    color: #3B5F83;
+  }
+
+  h3.searchFor {
+    margin-left: 1px;
+  }
+
+  #searchTerm {
+    .rounded-corners(2px);
+    width: @search-form-width - @search-button-width + 6px;
+    height: @search-box-height;
+    margin-right: -@search-button-width;
+    position: relative;
+    top: 1px;
+    padding-left: 3px;
+    border: 1px solid @form-field-border-color;
+  }
+
+  button#startSearch {
+    background-color: #efefef;
+    cursor: pointer;
+    float: right;
+    .rounded-corners(2px);
+    position: relative;
+    border: 1px solid @form-field-border-color;
+    width: @search-button-width;
+    height: @search-box-height + 1;
+
+    height: @search-box-height + 2;
+    background-size: 45%;
+
+    padding-top: 2px;
+
+    .icon {
+      margin-left: 10px;
+      .sprite.magnifying();
+    }
+
+  }
+
+  a.feedback {
+    float:right;
+    text-decoration: underline !important;
+    font-size: 75%;
+    margin-top: 3px;
+    &:hover {
+      color: @maroon;
+    }
+  }
+
+}
+
+#search {
+  opacity: 0;
+  height: 0;
+}
+
+#search.embedded {
+  margin-top: (@HeaderHeight - @search-box-height) / 2 + 1px;
+  position: fixed;
+  z-index: 20;
+  margin-left: 32%;
+  width: 40%;
+
+  opacity: 1;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  div#searchForm {
+    width: 100%;
+
+    button#startSearch {
+      float: right;
+      padding: 0;
+      margin: 1px 0 0 0;
+      width: 10%;
+      .icon {
+        margin: auto;
+      }
+    }
+
+    input#searchTerm {
+      padding-left: 2%;
+      margin: 0;
+      width: 88%;
+      margin-right: -1 * (@search-button-width + 6px);
+    }
+  }
+
+  h3.searchFor, a.feedback, img.background {
+    display: none;
+  }
+}
+
+#search.landingPage {
+  opacity: 1;
+  .imageBox {
+    max-width: 640px;
+    height: 400px;
+    margin: auto;
+
+    margin-top: 180px + @HeaderHeight;
+
+    .drop-shadows(10px);
+    .strip {
+      margin-top: 60px;
+      position: relative;
+      top: -440px;
+      left: 0;
+      padding: 10px 20px;
+      height: 60px;
+      background-color: @search-strip-color;
+    }
+
+    img.background {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/* hide the regular controls when we're presenting the cf dialog*/
+#search.landingPage.chromeFrame {
+  .searchForm {
+    display: none;
+  }
+
+  .strip {
+    height: 330px;
+    background-color: @grey5;
+    filter: alpha(opacity=88);
+    button {
+      filter: alpha(opacity=100);
+    }
+  }
+
+  .strip * {
+    //filter: alpha(opacity=100);
+  }
+}
+
+.chromeFrame {
+  margin: 15px 20px;
+  line-height: 160%;
+  color: black;
+
+  h2 {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 22px;
+    color: @blue1;
+
+    .titleWord1 { font-weight: bold; }
+    .titleWord2 { font-size: 23px; font-variant: small-caps;
+    }
+  }
+
+  h3 {
+    margin-top: 40px;
+  }
+
+  .message {
+    font-size: 15px;
+  }
+
+  .install {
+    font-weight: bold;
+    color: @blue1;
+    height: 30px;
+    border: 1px solid @grey1;
+    .rounded-corners(2px);
+    padding: 0 10px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}
+

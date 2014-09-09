@@ -1,0 +1,25 @@
+div.tab{display: none;}
+body.route-is-search {
+  div.tab{
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 5px 5px 0 0;
+    border-top: 1px solid #BBBBBA;
+    border-left: 1px solid #BBBBBA;
+    border-right: 1px solid #BBBBBA;
+    position: fixed;
+    top: @HeaderHeight + 15px;
+    left: 10px;
+    font-size: 13px;
+    .linear-gradient(#E9E9EA, #B3B4B5);
+  }
+  div.tab.selected{
+    cursor: default;
+    .linear-gradient(#E9E9EA, @page-background);
+    z-index: 1;
+  }
+  div.tab + .tab{left: 70px;}
+  div.tabbed{display: none;}
+  div.tabbed.selected{display: block;}
+}

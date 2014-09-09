@@ -1,0 +1,13 @@
+SLATE.directive 'badgeArea', ->
+  {
+    restrict: 'EA'
+    replace: true
+    transclude: true
+    scope:
+      badge: '='
+      areaClass: '@'
+      wrapperClass: '@'
+      badgeClass: '@'
+      nameClass: '@'
+    templateUrl: "<%= asset_path('templates/directives/badge.html') %>"
+  }

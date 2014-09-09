@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.lds.stack</groupId>
+        <artifactId>stack-master</artifactId>
+        <version>3.2</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>${project.artifactId}</name>
+    <artifactId>dasi-qa</artifactId>
+    <packaging>test-bundle</packaging>
+    <repositories>
+        <repository>
+            <id>lds-main</id>
+            <name>LDS Main Repo</name>
+            <url>http://code.lds.org/nexus/content/groups/main-repo</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>lds-internal-main</id>
+            <name>LDS Internal Main Repo</name>
+            <url>http://icslib/nexus/content/groups/main-repo</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>lds-internal-combined</id>
+            <name>LDS Internal Combined Repo</name>
+            <url>http://icslib/nexus/content/groups/combined-repo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>lds-plugin</id>
+            <name>LDS Plugin Repo</name>
+            <url>https://code.lds.org/nexus/content/groups/plugin-repo</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>lds-internal-plugin</id>
+            <name>LDS Internal Plugin Repo</name>
+            <url>http://icslib/nexus/content/groups/plugin-repo</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <prerequisites>
+        <maven>${mavenVersion}</maven>
+    </prerequisites>
+    <distributionManagement>
+        <repository>
+            <id>icslib-nexus</id>
+            <name>Stack Repo</name>
+            <url>http://icslib/nexus/content/repositories/lds-repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>icslib-nexus</id>
+            <name>Snapshot Repo</name>
+            <url>http://icslib/nexus/content/repositories/lds-snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>icslib-repo</id>
+            <name>ICSLIB Maven2 Site Reports</name>
+            <url>scp://icslib//var/www/html/projects/stack-project/${project.version}</url>
+        </site>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.lds.stack.test</groupId>
+                <artifactId>stack-test-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>functional-test</goal>
+                        </goals>
+                        <configuration>
+                        	<systemPropertyVariables>
+                        		<forceShutdown>true</forceShutdown>
+                        		<forceShutdownSleepInterval>5</forceShutdownSleepInterval>
+                        	</systemPropertyVariables>            
+                            <includes>
+                                <include>**/Test_*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.lds.stack.test</groupId>
+                                        <artifactId>stack-test-maven-plugin</artifactId>
+                                        <versionRange>[1.1.0,)</versionRange>
+                                        <goals>
+                                            <goal>test-compile</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.lds.stack.qa</groupId>
+            <artifactId>stack-selenium</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.lds.stack.qa</groupId>
+            <artifactId>stack-qa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.swift.common</groupId>
+            <artifactId>jira-soap</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.lds.stack.tomcat</groupId>
+            <artifactId>stack-tomcat</artifactId>
+            <version>1.0.9-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.42</version>
+        </dependency>
+    </dependencies>
+    <ciManagement>
+        <system>cruisecontrol</system>
+        <url>{put ci url here}</url>
+    </ciManagement>
+    <scm>
+        <url>{put subversion url here}</url>
+    </scm>
+    <issueManagement>
+        <system>JIRA</system>
+        <url>https://jira.ldschurch.org/jira/browse/{project}</url>
+    </issueManagement>
+    <profiles>
+<!--        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipEmbedMode>false</skipEmbedMode>
+                <skipDeployMode>true</skipDeployMode>
+                <deployHost>localhost</deployHost>
+                <deployUser></deployUser>
+                <tomcatEnv>dev</tomcatEnv>
+            </properties>
+        </profile>-->
+<!--     <profile> -->
+<!--       <id>continuous</id> -->
+<!--       <properties> -->
+<!--         <itGroups>smoke</itGroups> -->
+<!--         <skipDeployMode>false</skipDeployMode> -->
+<!--         <skipEmbedMode>true</skipEmbedMode> -->
+<!--         <deployUser>root</deployUser> -->
+<!--         <deployHost>10.118.192.151</deployHost> -->
+<!--         <testEnv>default</testEnv> -->
+<!--         <tomcatEnv>continuous</tomcatEnv> -->
+<!--         <tomcatRemoteDir>/opt/tomcat-emma</tomcatRemoteDir> -->
+<!--         <tomcatJavaHome>/usr/java/latest</tomcatJavaHome> -->
+<!--         <wamDeployDir>/opt/wam</wamDeployDir> -->
+<!--         <wamJavaHome>/opt/java/latest</wamJavaHome> -->
+<!--       </properties> -->
+<!--     </profile> -->
+<!--     <profile> -->
+<!--       <id>controlled</id> -->
+<!--       <properties> -->
+<!--         <itGroups>smoke</itGroups> -->
+<!--         <skipDeployMode>false</skipDeployMode> -->
+<!--         <skipEmbedMode>true</skipEmbedMode> -->
+<!--         <deployUser>root</deployUser> -->
+<!--         <deployHost>10.118.192.152</deployHost> -->
+<!--         <testEnv>default</testEnv> -->
+<!--         <tomcatEnv>functional</tomcatEnv> -->
+<!--         <tomcatRemoteDir>/opt/tomcat-emma</tomcatRemoteDir> -->
+<!--         <tomcatJavaHome>/usr/java/latest</tomcatJavaHome> -->
+<!--         <wamDeployDir>/opt/wam</wamDeployDir> -->
+<!--         <wamJavaHome>/opt/java/latest</wamJavaHome> -->
+<!--       </properties> -->
+<!--     </profile> -->
+    </profiles>
+</project>

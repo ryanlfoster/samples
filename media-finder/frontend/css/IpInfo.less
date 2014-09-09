@@ -1,0 +1,117 @@
+#ipInfo {
+  border: 1px solid @grey2;
+  .drop-shadows(25px, @black);
+  .rounded-corners(2px);
+  background-color: @page-background;
+  font-size: 12px;
+  line-height: 17px;
+
+  overflow: visible !important;
+
+  width: 700px;
+  height: 600px;
+  
+  &.ipcode {
+    width: 300px;
+    height: 120px;
+
+    .description {
+      display: none;
+    }
+
+    // OPEN
+    &.ipcode-0  .description.ipcode-0 {display: inline;}
+    &.ipcode-4  .description.ipcode-4 {display: inline;}
+    &.ipcode-7  .description.ipcode-7 {display: inline;}
+    &.ipcode-9  .description.ipcode-9 {display: inline;}
+
+    // APPROVAL
+    &.ipcode-0E   .description.ipcode-0E  {display: inline;}
+    &.ipcode-0MR  .description.ipcode-0MR {display: inline;}
+    &.ipcode-1    .description.ipcode-1   {display: inline;}
+    &.ipcode-1G   .description.ipcode-1G  {display: inline;}
+    &.ipcode-1AV  .description.ipcode-1AV {display: inline;} // .
+    &.ipcode-4MR  .description.ipcode-4MR {display: inline;}
+    &.ipcode-4AV  .description.ipcode-4AV {display: inline;} // .
+    &.ipcode-8    .description.ipcode-8   {display: inline;}
+    &.ipcode-10   .description.ipcode-10  {display: inline;}
+
+    // RESTRICTED
+    &.ipcode-5    .description.ipcode-5   {display: inline;}
+  }
+
+  .header {
+    height: 34px;
+    background-color: @blue5;
+    border-bottom: 1px solid @grey2;
+    h1 {
+      position: relative;
+      left: -15px;
+      float: left;
+      font-size: 20px;
+      color: @maroon;
+      line-height: 34px;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    padding: 20px 20px;
+    clear: both;
+  }
+
+  div.icon {
+    float:left;
+    width: 20px;
+    height: 20px;
+    &.open       { .sprite.ipOpen(); }
+    &.approval   { .sprite.ipApproval(); }
+    &.restricted { .sprite.ipRestricted(); }
+  }
+
+  div.arrow {
+    cursor: pointer;
+    float: left;
+    @arrow-size: 12px;
+    width: 0;
+    height: 0;
+    position: relative;
+    right: @arrow-size * 2;
+    top: 35px;
+
+    border: @arrow-size solid transparent;
+    border-right: @arrow-size solid @page-background;
+    &.right {
+      border-right: @arrow-size solid transparent;
+      border-left: @arrow-size solid @page-background;
+      right: -299px;
+    }
+  }
+
+  div.close {
+    cursor: pointer;
+    float: right;
+    .sprite.close();
+    margin: 7px;
+  }
+
+  h1.group {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-left: 13px;
+    color: @grey1;
+    display: inline-block;
+  }
+
+  div.codes {
+    margin-top: 10px;
+    td.code {
+      padding-right: 10px;
+    }
+  }
+
+  p.groupDescription, div.codes {
+    margin-left: 30px;
+    margin-bottom: 17px;
+  }
+}

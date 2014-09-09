@@ -1,0 +1,10 @@
+div class="badge-area {{areaClass}}" ng-style="{ 'background-color': badge.tertiary_color }"
+
+  div class="{{wrapperClass}}"
+    div class="badge {{badgeClass}}" ng-style=" { 'background-color': badge.secondary_color }"
+      span ng-bind-html-unsafe="badge.html_char_entity" ng-style="{ color: badge.primary_color }"
+    div class="badge-name {{nameClass}}" ng-style="{ color: badge.font_color }" {{ badge.name }}
+
+  div(ng-transclude ng-style="{ color: badge.font_color }")
+
+

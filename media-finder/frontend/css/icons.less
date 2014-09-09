@@ -1,0 +1,89 @@
+@iconSize: 13px;
+.sprite {
+
+  .close {
+    background: url('img/icons.png') no-repeat -277px -506px;
+    width: 19px;
+    height: 19px;
+  }
+
+  .download {
+    background: url('img/icons.png') no-repeat -34px -751px;
+    width: 15px;
+    height: 14px;
+  }
+
+  .collect {
+    background: url('img/icons.png') no-repeat -575px -210px;
+    width: 15px;
+    height: 14px;
+  }
+
+  .collection {
+    background-image: url('img/icons.png');
+    background-repeat: no-repeat;
+    background-position: -559px -227px;
+    width: 15px;
+    height: 14px; 
+  }
+
+  .magnifying {
+    background: url('img/icons.png') no-repeat -259px -527px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .trash{
+    background: url('img/icons.png') no-repeat -435px -348px;
+    width: 16px;
+    height: 18px; 
+  }
+  .trash-small{
+    background: url('img/icons.png') no-repeat -325px -261px;
+    width: 14px;
+    height: 14px;
+    background-size: 600px 600px;
+  }
+
+  .checkmark{
+    background: url('img/icons.png') no-repeat -416px -367px;
+    width: 18px;
+    height: 17px;
+  }
+
+  .filter {
+    background: url('img/filter.png') no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+
+  .ipOpen {
+    width: @iconSize;
+    height: @iconSize;
+    top: 2px;
+    background-color: @green;
+    .rounded-corners(13px);
+    border: 1px solid @grey2;
+  }
+
+  .ipApproval {
+    width: @iconSize;
+    height: @iconSize;
+    top: 3px;
+    background-color: @yellow;
+    border: 1px solid @grey2;
+  }
+
+  .ipRestricted {
+    width: @iconSize * 0.9;
+    height: @iconSize * 0.9;
+    top: 2px;
+    background-color: @red;
+    border: 1px solid @grey2;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}

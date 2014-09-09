@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/errors
+END
+resourceNotFound.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/errors/resourceNotFound.jsp
+END
+generalError.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/errors/generalError.jsp
+END
+accessDenied.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/errors/accessDenied.jsp
+END
+dataAccessFailure.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/CMDashboard/!svn/ver/17/Trunk/web/src/main/webapp/WEB-INF/views/errors/dataAccessFailure.jsp
+END

@@ -1,0 +1,72 @@
+li.thank(ng-init="likeables[$index] = create('/thanks/' + thank.id + '/likes/:id', thank.liked_by_current_account, thank.likes.length)" ng-cloak)
+
+  p.thank-signature
+    a.becomes-hidden-gte-med href="/accounts/{{thank.giver.id}}"
+      img.giver-avatar ng-src="{{thank.giver.avatar_url_thumb}}" title="{{thank.giver.display_name}}"
+    a href="/accounts/{{thank.giver.id}}"
+      ' {{thank.giver.display_name}}
+    ' thanked {{ thank.receivers|listAccounts }}
+    span ng-show="thank.badge.name"
+      ' with a "{{thank.badge.name}}"
+    time.thank-timestamp datetime="{{thank.created_at}}"
+      a href="/thanks/{{thank.id}}" {{thank.created_at|humanizeTimeFromNow}} ago
+
+  .thank-avatars.becomes-visible-gte-med
+    a href="/accounts/{{thank.giver.id}}"
+      img.avatar.giver-avatar ng-src="{{thank.giver.avatar_url_thumb}}" title="{{thank.giver.display_name}}"
+    span.giver-arrow
+    a href="/accounts/{{receiver.id}}" ng-repeat="receiver in thank.receivers|limitTo:4"
+      img.avatar.receiver-avatar ng-src="{{receiver.avatar_url_thumb}}" title="{{receiver.display_name}}"
+
+  .thank-main
+    div badge-area="" badge="thank.badge" area-class="thank-card" wrapper-class="tmp-badge-wrapper" badge-class="small"
+      p.thank-message {{thank.message}}
+      p.thank-message-signature - {{thank.giver.first_name}}
+
+    div.thank-like
+      a href="#" ng-hide="likeables[$index].isLikedByMe" class="oc-btn2 thank-like-btn" ng-click="likeables[$index].like($event)" title="Like this thank"
+        i.icon-heart
+          '
+        span.text Like
+      a href="#" ng-show="likeables[$index].isLikedByMe" class="oc-btn2 thank-like-btn is-liked" ng-click="likeables[$index].unlike($event)"
+        i.icon-heart
+          '
+        span.text Liked
+
+      a href="#likes-modal" ng-click="showLikesModal($event, $index)" class="thank-like-hint"
+        span ng-show="likeables[$index].isLikedByMe && likeables[$index].numLikes == 2"
+          ' You and
+        span ng-show="likeables[$index].isLikedByMe && likeables[$index].numLikes > 2"
+          ' You,
+        ' {{ thank.likers|listAccounts:{nameCount: 1, excludes: findAccount(thank.likers, currentAccountId)} }}
+        span ng-show="likeables[$index].isLikedByOthers()"
+          | liked this
+
+    div.comments-box
+      p.comment-count ng-show="thank.comments.length > 2"
+        a ng-click="toggleCommentsLimit(thank)"
+          span ng-show="thank.commentsLimit == -2"
+            | Read all {{thank.comments.length}} comments
+          span ng-show="thank.commentsLimit != -2"
+            | Hide comments
+
+      ul.comments ng-init="thank.commentsLimit = -2"
+        li.comment ng-repeat="comment in thank.comments|orderBy:'created_at'|limitTo:thank.commentsLimit"
+          comment
+
+        li.comment.comment-form-inline(ng-cloak)
+          form.simple_form.new_comment accept-charset="UTF-8" method="post" name="commentForm" novalidate="novalidate" ng-submit="thank.addComment(thank.newComment)"
+            input name="utf8" type="hidden" value="✓"
+            = token_tag nil
+
+            .comment-input
+              textarea.comment-text.required autogrow="" cols="40" data-test-comment-input="{{thank.id}}" keysubmit="thank.addComment(thank.newComment)" name="comment[comment]" ng-maxlength="300" ng-model="thank.newComment" placeholder="Add your thanks&hellip;" required="required" rows="20" ng-change="thank.hasDirtyComment=true"
+              .error-text ng-repeat="error in thank.errors"
+                | {{error}}
+              .error-text ng-show="thank.hasDirtyComment && commentForm.$error.required"
+                | Comment must be not be blank
+              .error-text ng-show="commentForm.$error.maxlength"
+                | Comment must be 300 characters or less
+
+            .form-action
+              input.comment-submit.oc-btn2 name="commit" ng-disabled="commentForm.$invalid" type="submit" value="Post" title="Add your comment to this thank"

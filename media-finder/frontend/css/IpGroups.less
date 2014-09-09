@@ -1,0 +1,74 @@
+#ipGroups {
+
+  margin: 10px 0;
+
+  width: @ControlsWidth - @ControlsPadding;
+  clear: left;
+
+  .info {
+    &:before{
+      font-family: palatino, georgia, serif;
+      font-weight: bold;
+      content: 'i';
+    }
+    cursor: pointer;
+    .noSelect();
+    display: inline-block;
+    height: 16px;
+
+    padding: 1px 7px 3px 8px;
+
+    margin: 1px 5px;
+
+    background-color: @blue3;
+    font-size: 14px;
+    font-weight: bold;
+    color: @grey6;
+    .rounded-corners(15px);
+  }
+
+  h3.codeGroups {
+    display: inline-block;
+    margin-left: 30px;
+  }
+
+  input[type="checkbox"]:checked + .icon + .label {
+    font-weight: bold;
+  }
+
+  .group {
+    clear: both;
+    .noSelect();
+    cursor: pointer;
+    @size: 13px;
+    margin-left: 10px;
+    border-left: 20px solid transparent;
+    font-size: @size;
+    line-height: 20px;
+    margin-top: 20px - @size;
+  }
+
+  .group:hover {
+    outline: 1px solid @grey4;
+  }
+
+  .groupCheckbox {
+    position: relative;
+    top: 1px;
+  }
+
+  .icon {
+    margin: 0 5px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .group.open       .icon { .sprite.ipOpen(); }
+  .group.approval   .icon { .sprite.ipApproval(); }
+  .group.restricted .icon { .sprite.ipRestricted(); }
+}
+
+.route-is-landing .ipGroups {
+  display: none;
+}
+

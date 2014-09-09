@@ -1,0 +1,23 @@
+<div class="result jstree-draggable"
+  data-qa-ipcode="{{rightsManagement/ipCode}}"
+  data-qa-externalId="{{metadata/externalId}}"
+  data-qa-assetType="{{metadata/assetType}}"
+  data-entry-id="{{id}}"
+  data-asset-name="{{metadata/name}}"
+  >
+  <div class="imageBox">
+    <img data-img="{{metadata/thumbnailUrl}}"
+      src="" alt=""
+      class="resultImage" />
+  </div>
+  <div class="icons ipcode-{{rightsManagement/ipCode}}">
+    <div class="ip"></div>
+      <div class="download"></div>
+      {{#if search}}
+        <div class="collect"></div>
+      {{/if}}
+      {{#if collection}}
+        <div class="delete"></div>
+      {{/if}}
+  </div>
+</div>

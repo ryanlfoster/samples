@@ -1,0 +1,87 @@
+#DeletePopup {
+  border: 1px solid @grey2;
+  .drop-shadows(25px, @black);
+  .rounded-corners(2px);
+  background-color: @page-background;
+  font-size: 12px;
+  line-height: 17px;
+
+  overflow: visible !important;
+
+  width: 270px;
+
+  .header {
+    height: 34px;
+    background-color: @blue5;
+    border-bottom: 1px solid @grey2;
+    h1 {
+      position: relative;
+      left: -15px;
+      float: left;
+      font-size: 20px;
+      color: @maroon;
+      line-height: 34px;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    padding: 20px 20px;
+    clear: both;
+
+    .btn{
+    	border: 1px solid #C7D3EB;
+    	background-color: #1a82f7;
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#E5EBF7));
+      background-image: -webkit-linear-gradient(top, #ffffff, #E5EBF7); 
+      background-image:    -moz-linear-gradient(top, #ffffff, #E5EBF7);
+      background-image:     -ms-linear-gradient(top, #ffffff, #E5EBF7);
+      background-image:      -o-linear-gradient(top, #ffffff, #E5EBF7);
+    	width: 60px;
+    	height: 25px;
+    	cursor: pointer;
+      color: #6481C6;
+    }
+
+    div{
+    	float: right;
+    	a:hover{
+    		text-decoration: underline;
+    	}
+    }
+  }
+
+  div.arrow {
+    cursor: pointer;
+    float: left;
+    @arrow-size: 12px;
+    width: 0;
+    height: 0;
+    position: relative;
+    right: @arrow-size * 2;
+    top: 35px;
+
+    border: @arrow-size solid transparent;
+    border-right: @arrow-size solid @page-background;
+    &.right {
+      border-right: @arrow-size solid transparent;
+      border-left: @arrow-size solid @page-background;
+      right: -299px;
+    }
+  }
+
+  div.close {
+    cursor: pointer;
+    float: right;
+    .sprite.close();
+    margin: 7px;
+  }
+
+  h1.group {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-left: 13px;
+    color: @grey1;
+    display: inline-block;
+  }
+}

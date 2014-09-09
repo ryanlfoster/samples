@@ -1,0 +1,43 @@
+<div id="resultsSummary">
+  {{#if .}}
+    <div class="nResults">
+      {{#if error}}
+        <span class="error">
+          {{{error}}}
+        </span>
+      {{else}}
+        {{#if reloading}}
+          <span class="message">Loading results for</span>
+        {{else}}
+          {{nResults}} Results for
+        {{/if}}
+        <span class="term">
+          {{searchTerm}}
+        </span>
+        {{#if keywords}}
+          and
+        {{/if}}
+        {{#keywords}}
+          <span class="keyword" data-name="{{.}}">
+            <span class="name">
+              {{.}}
+            </span>
+            <span class="close">X</span>
+          </span>
+        {{/keywords}}
+      {{/if}}
+    </div>
+    {{#if reloading}}
+    {{else}}
+      <div id="pagination">
+        <div class="buttony">
+          <span class="back"></span>
+        </div>
+        <input class="currentPage" type="text" value="0"/><span class="totalPages"> of {{pages}}</span>
+        <div class="buttony">
+          <span class="forward"></span>
+        </div>
+      </div>
+    {{/if}}
+  {{/if}}
+</div>

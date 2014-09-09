@@ -1,0 +1,77 @@
+#pendingRequests{
+	float: right;
+	margin: 12px 15px 0 0;
+	font-size: 13px;
+	.icon{
+		cursor: pointer;
+		span{
+			font-size: 11px;
+			background-color: @page-background;
+			color: #2B4D7E;
+			display: inline-block;
+			border-radius: 15px;
+			position: relative;
+			left: -10px;
+			top: 3px;
+			padding: 1px 4px;
+		}
+	}
+	.requestPanel{
+		display: none;
+		position: fixed;
+		color: #000;
+		right: 75px;
+		top: 44px;
+		background-color: @page-background;
+		padding: 10px;
+		box-shadow: 0 2px 8px #000;
+		height: 200px;
+		width: 500px;
+		overflow-y: scroll;
+		a{
+			color: #000;
+			&:hover{
+				color: #000;
+			}
+		}
+		.showAsset{
+			color: #285078;
+			cursor: pointer;
+			&:hover{
+				color: #9DBCD9;
+			}
+		}
+		table{
+			border-collapse: collapse;
+			width: 100%;
+			th{
+				background-color: #D6D6D6;
+				color: #5D5D5D;
+			}
+			th[data-sort]{cursor: pointer;}
+			th[data-direction="ASC"] span::after{
+				content: '';
+				display: inline-block;	
+				border-bottom: 7px solid #5D5D5D;
+				border-top: none;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				margin-left: 5px;
+			}
+			th[data-direction="DESC"] span::after{
+				content: '';
+				display: inline-block;	
+				border-top: 7px solid #5D5D5D;
+				border-bottom: none;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				margin-left: 5px;
+			}
+			tr:nth-child(even){background-color: #F1F1F1;}
+			th, td{
+				border: 2px solid #EBEBEB;
+				padding: 3px;
+			}
+		}
+	}
+}

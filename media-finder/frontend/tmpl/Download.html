@@ -1,0 +1,52 @@
+<div id="download" class="loader">
+  <div class="topBar">
+    <h3>
+      Download
+    </h3>
+    <div class="close"></div>
+  </div>
+  <div class="arrow"></div>
+  <div class="downloadOptions">
+    <div class="loading"></div>
+    <div class="requestDownload">
+      <div class="ask">
+        <label>Use of this asset requires correlation approval. Please provide a brief explanation of how this will be used.</label>
+        <p class="requestError" style="display: none; color: red;">Please provide a reason to request this asset.</p>
+        <div>
+          <textarea></textarea>
+        </div>
+        <a class="requestPermission" data-external-id="{{metadata/externalId}}" data-source="{{metadata/repositoryName}}">Proceed</a>
+      </div>
+      <div class="info">
+        <div style="background-image: url({{metadata/thumbnailUrl}})">
+
+        </div>
+        <div>
+          <div>IP Code: {{rightsManagement/ipCode}}</div>
+          {{#metadata}}
+            <div>Telescope Id: {{externalId}}</div>
+            <div class="ellipsis">Name: {{fixupTitle name}}</div>
+          {{/metadata}}
+        </div>
+      </div>
+    </div>
+    <table>
+      <tr class="headingRow">
+        <th></th>
+        <th>Dimensions</th>
+        <th>Size</th>
+        <th>Type</th>
+      </tr>
+      {{#assets}}
+        {{#asset}}
+          <tr class="downloadRow" data-id="{{../../id}}" data-versionId="{{versionId}}" data-rendering="{{rendering}}">
+            <td><div class="download"><div/></div></td>
+            <td>{{downloadResolution resolution}}</td>
+            <td>{{humanDataSizes fileSize}}</td>
+            <td>{{#format}}{{uppercase extension}}{{/format}}</td>
+          </tr>
+        {{/asset}}
+      {{/assets}}
+    </table>
+  </div>
+</div>

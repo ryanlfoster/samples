@@ -1,0 +1,177 @@
+<div id="details">
+  <div class="close"></div>
+  <div class="imageBox">
+    {{#metadata}}
+      <img class="previewImage" src="{{ifFirst previewUrl thumbnailUrl}}" alt="" />
+    {{/metadata}}
+  </div>
+  <div class="actions">
+    <div class="download action">
+      <div class="icon"/>
+      <p class="text">Download</p>
+    </div>
+  </div>
+  <div class="data">
+    <div class="open section" data-qa-field="summary section">
+      <div class="accordion-arrow"></div>
+      <h3 class="sectionHeading">Summary</h3>
+      <table class="fields">
+      {{#metadata}}
+        <tr class="field" data-qa-field="fulltitle">
+          <td class="label">Title</td>
+          <td class="value">{{noEmpty name}}</td>
+        </tr>
+        <tr class="field" data-qa-field="fulldescription">
+          <td class="label">Description</td>
+          <td class="value">{{noEmpty description}}</td>
+        </tr>
+        <tr class="field" data-qa-field="language">
+          {{#language}}
+            <td class="label">Language</td>
+            <td class="value">{{noEmpty text}} ({{noEmpty code}})</td>
+          {{/language}}
+        </tr>
+        <tr class="field" data-qa-field="externalId">
+          <td class="label capitalize">{{toLowerCase repositoryName}} ID</td>
+          <td class="value">{{noEmpty externalId}}</td>
+        </tr>
+      {{/metadata}}
+      {{#assets}}
+        <tr class="field" data-qa-field="filename">
+            <td class="label">Filename</td>
+            <td class="value">
+              {{#asset}}
+                {{noEmpty filename}}
+              {{/asset}}
+            </td>
+        </tr>
+      {{/assets}}
+      {{#metadata}}
+        {{#keyValues}}
+        <tr class="field" data-qa-field="seoName">
+          <td class="label">SEO Name</td>
+          <td class="value">{{noEmpty seoName}}</td>
+        </tr>
+        <tr class="field" data-qa-field="addInfo">
+          <td class="label">Additional Info</td>
+          <td class="value">
+            {{#delimit addInfo ","}}
+              <div>{{noEmpty .}}</div>
+            {{/delimit}}
+          </td>
+        </tr>
+        <tr class="field" data-qa-field="callNum">
+          <td class="label">Call Number</td>
+          <td class="value">
+            {{#delimit callNum "^|^"}}
+              <div>{{noEmpty .}}</div>
+            {{/delimit}}
+          </td>
+        </tr>
+        {{/keyValues}}
+        <tr class="field" data-qa-field="assetType">
+          <td class="label">Asset Type</td>
+          <td class="value">{{noEmpty assetType}}</td>
+        </tr>
+        <tr class="field" data-qa-field="repositoryName">
+          <td class="label">Repository</td>
+          <td class="value">{{noEmpty repositoryName}}</td>
+        </tr>
+        <tr class="field" data-qa-field="deepLink">
+          <td class="label">Share This</td>
+          <td class="deeplink value">
+            <div class="breakWord">
+              <a class="deeplink" target="_blank" href="{{{Details-relLink ../id}}}">{{{Details-relLink ../id "true"}}}</a>
+            </div>
+          </td>
+        </tr>
+      {{/metadata}}
+      </table>
+    </div>
+    <div class="section closed" data-qa-field="rights management section">
+      <div class="accordion-arrow"></div>
+      <h3 class="sectionHeading">Rights Management</h3>
+      <table class="fields">
+      {{#rightsManagement}}
+        <tr class="field" data-qa-field="contractId">
+          <td class="label">Contract ID</td>
+          <td class="value">{{noEmpty rmId}}</td>
+        </tr>
+        <tr class="field" data-qa-field="ipcode">
+          <td class="label">IP Code</td>
+          <td class="value">{{noEmpty ipCode}}</td>
+        </tr>
+        <tr class="field" data-qa-field="textLimitations">
+          <td class="label">Text Limitations</td>
+          <td class="value">{{noEmpty textLimitations}}</td>
+        </tr>
+        <tr class="field" data-qa-field="locked">
+          <td class="label">Locked</td>
+          <td class="value">{{trueFalseToYesNo locked}}</td>
+        </tr>
+      {{/rightsManagement}}
+      {{#metadata}}
+        {{#keyValues}}
+          <tr class="field" data-qa-field="creditLine">
+            <td class="label">Credit Line</td>
+            <td class="value">{{noEmpty creditLine}}</td>
+          </tr>
+          <tr class="field" data-qa-field="creditLineRequired">
+            <td class="label">Credit Line Required</td>
+            <td class="value">{{noEmpty creditLineRequired}}</td>
+          </tr>
+        {{/keyValues}}
+      {{/metadata}}
+      </table>
+    </div>
+    <div class="section closed" data-qa-field="keywords section">
+      <div class="accordion-arrow"></div>
+      <h3 class="sectionHeading">Keywords</h3>
+      <div class="fields">
+      {{#keywords}}
+        {{#keyword}}
+          <div data-qa-field="keywords">
+      			<a href="/#search?query={{noEmpty .}}">
+  		        <span class="keyword value">
+  		          <p class="text" title="{{noEmpty .}}">
+  		            {{noEmpty .}}
+  		          </p>
+  		          <div class="icon"></div>
+  		        </span>
+      			</a>
+          </div>
+        {{/keyword}}
+      {{/keywords}}
+      {{#metadata}}
+        {{#keyValues}}
+          {{#delimit keywordsSecondary "^|^"}}
+            <div data-qa-field="keywordsSecondary">
+              <a href="/#search?query={{noEmpty .}}">
+                <span class="keyword value">
+                  <p class="text" title="{{noEmpty .}}">
+                    {{noEmpty .}}
+                  </p>
+                  <div class="icon"></div>
+                </span>
+              </a>
+            </div>
+          {{/delimit}}
+        {{/keyValues}}
+      {{/metadata}}
+      </div>
+    </div>
+    <div class="section closed" data-qa-field="historyOfUse section">
+      <div class="accordion-arrow"></div>
+      <h3 class="sectionHeading">History of Use</h3>
+      <div class="fields">
+      {{#metadata}}
+        {{#keyValues}}
+          {{#delimit historyOfUse "^|^"}}
+            {{noEmpty .}}<br/>
+          {{/delimit}}
+        {{/keyValues}}
+      {{/metadata}}
+      </div>
+    </div>
+  </div>
+</div>

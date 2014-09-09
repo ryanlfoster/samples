@@ -1,0 +1,74 @@
+#sorting {
+
+  margin: 20px 30px;
+  width: @ControlsWidth - @ControlsPadding;
+  clear: left;
+  font-size: 12px;
+
+  .select{
+    display: table-row;
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .title{
+        border: 1px solid #818386;
+        border-radius: 3px 0 0 3px;
+        border-right: none;
+        background-color: #E6E7E9;
+        padding: 4px 6px 4px 4px;
+        white-space: nowrap;
+      }
+
+      .option{
+        border: 1px solid #818386;
+        border-radius: 0 3px 3px 0;
+        font-weight: bold;
+        width: 158px;
+        padding: 4px 4px 4px 6px;
+        cursor: pointer;
+
+        .name{
+          float: left;
+        }
+
+        .arrow {
+          display: inline-block;
+          width: 0px;
+          height: 0;
+          border-top: 8px solid #283655;
+          padding: 0px;
+          border-right: 3px solid transparent;
+          border-left: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+          border-bottom: none;
+          float: right;
+          margin: 3px 3px 0 0;          
+        }
+      }
+  }
+
+  .options{
+    display: none;
+    width: 158px;
+    border: 1px solid #818386;
+    border-top: none;
+    right: 10px;
+    padding: 4px 4px 4px 6px;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+
+    div{
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    div:hover{
+      font-weight: bold;
+    }
+  }
+}
+

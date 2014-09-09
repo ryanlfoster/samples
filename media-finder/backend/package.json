@@ -1,0 +1,17 @@
+{
+  "name": "MediaFinder",
+  "version": "0.8.0",
+  "private": true,
+  "engines": {
+    "node": "0.6.x",
+    "npm":  "1.1.x"
+  },
+  "dependencies": {
+    "express"     : "2.4.5",
+    "requirejs"   : "0.26.0",
+    "xml2js"      : "0.1.9",
+    "nodemailer"  : "0.3.31",
+    "underscore"  : "1.4.2",
+    "winston"     : "0.6.2"
+  }
+}

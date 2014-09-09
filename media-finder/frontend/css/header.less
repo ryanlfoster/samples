@@ -1,0 +1,145 @@
+body.route-is-landing div#header div.logo {
+  height: 100px;
+  opacity: 1;
+  .logo {
+    opacity: 1;
+  }
+}
+
+div#header {
+  /*dimentions*/
+  @title-font-size: 21px;
+  @bottom-margin-size: (@HeaderHeight - @title-font-size ) / 2 - 2px;
+
+  .noSelect();
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+
+  background-color: @blue1;
+  padding: 2px 0px;
+  overflow: hidden;
+  z-index: 20;
+
+  div.branding {
+    background-color: @blue1;
+    float: left;
+    min-width: 300px;
+    height: @HeaderHeight;
+    margin-right: 0;
+    z-index: 30;
+  }
+
+  color: @header-text-color;
+
+  div.logo {
+    width: 100%;
+    position: relative;
+    top: -2px;
+    height: 0px; /* 100px on landing (see above) */
+    opacity: 0; /* 1 on landing (see above) */
+    -webkit-transition: height 1s, opacity 1s linear;
+    -moz-transition:    height 1s, opacity 1s linear;
+    transition:         height 1s, opacity 1s linear;
+    background-color: @grey6;
+     z-index: -10;
+    .logo {
+      opacity: 0; /* 1 on landing (see above)*/
+      -webkit-transition: opacity 1s linear;
+      -moz-transition:    opacity 1s linear;
+      transition:         opacity 1s linear;
+      margin-left: 40px;
+      margin-top: 24px;
+      height: 53px;
+    }
+  }
+
+  div.title {
+    float: left;
+    font-size: @title-font-size;
+    margin: @bottom-margin-size 0;
+    margin-left: 70px;
+
+    .firstword {
+      letter-spacing: 0.01em;
+      color: @header-text-color;
+    }
+    .secondword {
+      color: @header-text-color;
+      font-weight: normal;
+      letter-spacing: 0.01em;
+      font-variant:small-caps;
+      font-size: 1.1em;
+    }
+    .thirdword {
+      letter-spacing: 0.01em;
+      color: @blue5;
+      margin-left: 7px;
+      font-size: 102%;
+    }
+  }
+
+  div.logout {
+    @font-size: 16px;
+    font-size: @font-size;
+    float: right;
+    line-height: @HeaderHeight;
+    padding-right:20px;
+    a.logout{
+      color: @grey5;
+    }
+  }
+}
+
+#help{
+  float: right;
+  margin: 10px 25px 0 0;
+  font-size: 13px;
+  .action{
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .action::after{
+    content: " ";
+    display: inline-block;
+    margin-left: 3px;
+    border-top: 7px solid #fff;
+    border-bottom: none;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+  }
+  .dropdown{
+    display: none;
+    position: fixed;
+    color: #000;
+    right: 135px;
+    top: 44px;
+    background-color: @page-background;
+    padding: 6px;
+    box-shadow: 0 2px 8px #000;
+    height: auto;
+    width: auto;
+
+    span{
+      display: block;
+      margin: 4px 0;
+    }
+  }
+}
+
+/*
+div.arrowdown {
+  @arrow-size: 12px;
+  position: absolute;
+  top: @HeaderHeight - (@arrow-size/2) + 3px;
+  left: 100px;
+  width:0px;
+  border-left: @arrow-size solid transparent;
+  border-right: @arrow-size solid transparent;
+  border-bottom: @arrow-size solid @page-background;
+  font-size:0px;
+  line-height:0px;
+}
+*/

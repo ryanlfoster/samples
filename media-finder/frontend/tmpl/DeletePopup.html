@@ -1,0 +1,22 @@
+<div id="DeletePopup">
+  <div class="header">
+    <div class="arrow"></div>
+    {{#ifCond type "Collection"}}
+      <h1>Delete {{type}}</h1>
+    {{else}}
+      <h1>Remove {{type}}</h1>
+    {{/ifCond}}
+    <div class="close"></div>
+  </div>
+  <div class="content">
+    {{#ifCond type "Collection"}}
+      <p class="description">Are you sure you want to remove {{name}}? Any child collections will also be removed.</p>
+    {{else}}
+      <p class="description">Are you sure you want to remove {{name}}?</p>
+    {{/ifCond}}
+    <div>
+      <button class="btn yes">Yes</button>
+      <a class="no clickable">Cancel</a>
+    </div>
+  </div>
+</div>

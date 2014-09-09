@@ -1,0 +1,172 @@
+
+body.modeA div#resultsGrid .result .imageBox{
+  border: 1px solid @border-color;
+}
+
+body.modeB div#resultsGrid .result .imageBox{
+  .drop-shadows(14px, @grey3);
+}
+
+#results #resultsGrid{bottom: 20px;}
+
+div#resultsGrid {
+  @width: @SearchResultWidth - @SearchResultPadding;
+  position: absolute;
+  z-index: -10;
+  overflow: scroll;
+  right: 0;
+  left: 261px;
+  top: 82px;
+  bottom: 0;
+  padding: 3px 0 15px 0;
+
+  .result {
+    width: @width;
+    margin-left: @SearchResultPadding;
+    margin-bottom: @SearchResultPadding;
+    float:left;
+  //display: none;
+
+    .imageBox {
+      width: @width;
+      height: @width;
+      text-align: center;
+      line-height: @width;
+
+      img{vertical-align: middle;}
+    }
+    .imageBox:hover {
+      box-shadow: 0px 0px 5px #000;
+    }
+
+    .resultImage {
+      border: 1px solid @border-color;
+    }
+
+    .icons {
+      height: @SearchResultHeight - @SearchResultWidth;
+      overflow: hidden;
+
+      .download {
+        cursor: pointer;
+        .sprite.download();
+        margin-top: 11px;
+        margin-right: 5px;
+        padding-top: 4px;
+        width: 20px;
+        float: left;
+      }
+
+      .ip {
+        cursor: pointer;
+        margin-top: 11px;
+        margin-right: 11px;
+        margin-left: 42px;
+        float: left;
+      }
+
+      .collect{
+        .sprite.collect();
+        cursor: pointer;
+        float: left;
+        margin-top: 11px;
+      }
+
+      .delete{
+        .sprite.trash();
+        cursor: pointer;
+        float: left;
+        margin-top: 11px;
+      }
+
+      // OPEN
+      &.ipcode-0  .ip { .sprite.ipOpen(); }
+      &.ipcode-4  .ip { .sprite.ipOpen(); }
+      &.ipcode-7  .ip { .sprite.ipOpen(); }
+      &.ipcode-9  .ip { .sprite.ipOpen(); }
+
+      // APPROVAL
+      &.ipcode-0E   .ip { .sprite.ipApproval(); }
+      &.ipcode-0MR  .ip { .sprite.ipApproval(); }
+      &.ipcode-1    .ip { .sprite.ipApproval(); }
+      &.ipcode-1G   .ip { .sprite.ipApproval(); } // .
+      &.ipcode-1AV  .ip { .sprite.ipApproval(); } // .
+      &.ipcode-4MR  .ip { .sprite.ipApproval(); }
+      &.ipcode-4AV  .ip { .sprite.ipApproval(); } // .
+      &.ipcode-8    .ip { .sprite.ipApproval(); }
+      &.ipcode-10   .ip { .sprite.ipApproval(); }
+
+      // RESTRICTED
+      &.ipcode-5    .ip { .sprite.ipRestricted(); }
+    }
+
+  }
+
+  div.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .5);
+    background-position: center;
+  }
+
+  .loading + #pagination{
+    display: none;
+  }
+
+
+    #pagination{
+    margin-top: 10px;
+    clear: both;
+    text-align: center;
+    margin-bottom: 15px;
+
+    .buttony{
+      display: inline-block;
+      border: 1px solid #8A95B9;
+      padding: 3px 0px;
+      background-image: linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -o-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -moz-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -webkit-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -ms-linear-gradient(bottom, rgb(229,234,248) 50%, rgb(255,255,255) 85%);
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.5, rgb(229,234,248)),
+        color-stop(0.85, rgb(255,255,255))
+      );
+      cursor: pointer;
+      &.disabled{
+          cursor: default;
+          .back{
+            border-right-color: #cccccc !important;
+            cursor: default;}
+          .forward{
+            border-left-color: #cccccc !important;
+            cursor: default;}
+      }
+    }
+
+    span{
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 10px;
+
+      &.back{
+        border-right: 10px solid black;
+        border-top: 9px solid transparent;
+        border-left: none;
+        border-bottom: 9px solid transparent;
+      }
+      &.forward{
+        border-left: 10px solid black;
+        border-top: 9px solid transparent;
+        border-right: none;
+        border-bottom: 9px solid transparent;
+      }
+    }
+  } 
+}
